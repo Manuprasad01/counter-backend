@@ -1,7 +1,13 @@
-const mongoose=require('mongoose');
-const connection =mongoose.createConnection('mongodb://localhost:27017/CounterApp').on('open',()=>{
-    console.log('Mongodb connected');
-}).on('error',()=>{
-    console.long('Mongodb connection error');
-});
-module.exports=connection;
+const mongoose = require('mongoose');
+
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGO_URI);
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.error(`Error: ${error.message}`);
+    process.exit(1);
+  }
+};
+
+module.exports = connectDB;
