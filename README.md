@@ -55,7 +55,3 @@ counter-backend/
 ├── README.md
 ```
 
-## 📬 Postman Collection
-You can import the exported Postman collection file included in the repo to test all routes.
-
----
